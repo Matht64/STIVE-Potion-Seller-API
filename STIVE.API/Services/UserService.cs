@@ -37,18 +37,18 @@ public class UserService
         return _database.user.FirstOrDefault(l => l.Id == id);
     }
     
-    public User AddUser(UserSaveDTO userSaveDto)
+    public User AddUser(UserToSaveDTO UserToSaveDto)
     {
         var role = _database.role.ToList();
         var user = new User
         {
-            Name = userSaveDto.Name,
-            Email = userSaveDto.Email,
-            Password = userSaveDto.Password,
-            UserHasRoles = userSaveDto.UserHasRoles.Select(id => new UserHasRole
+            Name = UserToSaveDto.Name,
+            Email = UserToSaveDto.Email,
+            Password = UserToSaveDto.Password,
+            UserHasRoles = UserToSaveDto.UserHasRoles.Select(id => new UserHasRole
             {
                 RoleId = id
-            })
+            }).ToList(),
         };
         _database.user.Add(user);
         _database.SaveChanges();

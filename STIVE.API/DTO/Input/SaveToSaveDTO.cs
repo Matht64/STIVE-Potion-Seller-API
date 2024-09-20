@@ -3,15 +3,15 @@ using STIVE.API.Models;
 
 namespace STIVE.API.DTO.Input
 {
-    public class SaveSaveDTO : EntityDTO
+    public class SaveToSaveDTO : EntityDTO
     {
         public string Name { get; set; }
         public int Gold { get; set; }
-        public int idUser { get; set; }
+        public int UserId { get; set; }
         public List<int> SaveHasBonuses { get; set; }
         public List<int> SaveHasPotions { get; set; }
         public List<int> SaveHasSuppliers { get; set; }
-        public SaveSaveDTO() 
+        public SaveToSaveDTO() 
         {
             SaveHasBonuses = new List<int>();
             SaveHasPotions = new List<int>();

@@ -32,7 +32,7 @@ public partial class UserController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddUser([FromBody] UserSaveDTO user)
+    public IActionResult AddUser([FromBody] UserToSaveDTO user)
     {
         var createdUser = _userService.AddUser(user);
         return Ok(createdUser);

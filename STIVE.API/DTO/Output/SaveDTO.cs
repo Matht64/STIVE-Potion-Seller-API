@@ -6,7 +6,7 @@ namespace STIVE.API.DTO.Output
     {
         public string Name { get; set; }
         public int Gold { get; set; }
-        public int idUser { get; set; }
+        public int UserId { get; set; }
         public SaveDTO() { }
 
     }
