@@ -9,6 +9,7 @@ namespace STIVE.API.Models
         //[ForeignKey("UserId")]
         public int UserId { get; set; }
         public User User { get; set; }
+        public string Name { get; set; }
         public List<SaveHasBonus> SaveHasBonuses { get; set; }
         public List<SaveHasPotion> SaveHasPotions { get; set; }
         public List<SaveHasSupplier> SaveHasSuppliers { get; set; }

@@ -17,7 +17,7 @@ namespace STIVE.API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -110,7 +110,8 @@ namespace STIVE.API.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Gold = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -157,7 +158,7 @@ namespace STIVE.API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SaveId = table.Column<int>(type: "int", nullable: false),
                     BonusId = table.Column<int>(type: "int", nullable: false),
-                    DateEnd = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateEnd = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

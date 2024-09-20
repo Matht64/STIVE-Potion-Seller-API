@@ -12,7 +12,7 @@ using STIVE.API.Database;
 namespace STIVE.API.Migrations
 {
     [DbContext(typeof(stive_potion_seller_context))]
-    [Migration("20240919083441_MaSuperMigration")]
+    [Migration("20240919100050_MaSuperMigration")]
     partial class MaSuperMigration
     {
         /// <inheritdoc />
@@ -37,7 +37,7 @@ namespace STIVE.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -114,6 +114,10 @@ namespace STIVE.API.Migrations
                     b.Property<int>("Gold")
                         .HasColumnType("int");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -135,7 +139,7 @@ namespace STIVE.API.Migrations
                     b.Property<int>("BonusId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateEnd")
+                    b.Property<DateTime?>("DateEnd")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("SaveId")
