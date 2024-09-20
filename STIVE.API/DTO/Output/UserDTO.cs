@@ -1,7 +1,6 @@
 ﻿using STIVE.API.DTO.Core;
-using STIVE.API.DTO;
 
-namespace STIVE.API.DTO
+namespace STIVE.API.DTO.Output
 {
     public class UserDTO : EntityDTO
     {

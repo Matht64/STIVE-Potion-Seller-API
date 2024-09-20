@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using STIVE.API.DTO;
+using STIVE.API.DTO.Output;
+using STIVE.API.DTO.Input;
 using STIVE.API.Database;
 using STIVE.API.Models;
 

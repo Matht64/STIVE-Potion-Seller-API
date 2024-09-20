@@ -1,6 +1,7 @@
-using STIVE.API.Services;
+﻿using STIVE.API.Services;
 using Microsoft.AspNetCore.Mvc;
-using STIVE.API.DTO;
+using STIVE.API.DTO.Output;
+using STIVE.API.DTO.Input;
 using STIVE.API.Models;
 
 namespace STIVE.API.Controllers;
