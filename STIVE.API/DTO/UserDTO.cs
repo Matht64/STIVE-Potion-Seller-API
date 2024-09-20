@@ -6,10 +6,10 @@ namespace STIVE.API.DTO
     public class UserDTO : EntityDTO
     {
         public string Name { get; set; }
-        public List<RoleDTO> Roles { get; set; }
+        public List<RoleDTO> UserHasRoles { get; set; }
         public UserDTO()
         {
-            Roles = new List<RoleDTO>();
+            UserHasRoles = new List<RoleDTO>();
         }
     }
 }
