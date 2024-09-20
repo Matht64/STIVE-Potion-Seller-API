@@ -1,43 +1,55 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using STIVE.API.Services;
+using Microsoft.AspNetCore.Mvc;
+using STIVE.API.DTO.Output;
+using STIVE.API.DTO.Input;
+using STIVE.API.Models;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+namespace STIVE.API.Controllers;
 
-namespace STIVE.API.Controllers
+[ApiController]
+[Route("[controller]")]
+public partial class UserController : Controller
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UserController : ControllerBase
+    private readonly UserService _userService;
+
+    public UserController(UserService userService)
     {
-        // GET: api/<UserController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        _userService = userService;
+    }
 
-        // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+    [HttpGet]
+    public IActionResult GetAllUsers()
+    {
+        var users = _userService.GetAllUsers();
+        return Ok(users);
+    }
 
-        // POST api/<UserController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+    [HttpGet("{id}")]
+    public IActionResult GetUser(int id)
+    {
+        var user = _userService.GetUserById(id);
+        return Ok(user);
+    }
 
-        // PUT api/<UserController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+    [HttpPost]
+    public IActionResult AddUser([FromBody] UserSaveDTO user)
+    {
+        var createdUser = _userService.AddUser(user);
+        return Ok(createdUser);
+    }
 
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+    [HttpPut]
+    public IActionResult UpdateUser([FromBody]User user)
+    {
+        var a = _userService.UpdateUser(user);
+        return Ok(a);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteUser(int id)
+    {
+        var user = _userService.DeleteUser(id);
+        return Ok(user);
     }
 }
+

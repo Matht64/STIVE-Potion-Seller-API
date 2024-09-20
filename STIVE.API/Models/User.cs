@@ -9,7 +9,7 @@ namespace STIVE.API.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Tel { get; set; }
-        public List<UserHasRole> UserHasRoles { get; set; }
+        public IEnumerable<UserHasRole> UserHasRoles { get; set; }
         public User()
         {
             UserHasRoles = new List<UserHasRole>();
