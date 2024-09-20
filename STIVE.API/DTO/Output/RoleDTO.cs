@@ -1,12 +1,11 @@
 ﻿using STIVE.API.DTO.Core;
-using STIVE.API.DTO;
 
-namespace STIVE.API.DTO
+namespace STIVE.API.DTO.Output
 {
     public class RoleDTO : EntityDTO
     {
         public string? Name { get; set; }
-        public RoleDTO() {}
+        public RoleDTO() { }
 
     }
 }
