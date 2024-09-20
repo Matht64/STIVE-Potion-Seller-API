@@ -10,10 +10,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<stive_potion_seller_context>(option =>
-{
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
-});
+var connectionString = builder.Configuration.GetConnectionString("MariaDbConnection");
+builder.Services.AddDbContext<stive_potion_seller_context>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
 
 var app = builder.Build();
 
