@@ -1,5 +1,9 @@
 using STIVE.API.Database;
 using STIVE.API.Models;
+using STIVE.API.DTO.Output;
+using STIVE.API.DTO.Input;
+using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Headers;
 
 namespace STIVE.API.Services;
 
@@ -12,9 +16,20 @@ public class RoleService
         _database = database;
     }
 
-    public List<Role> GetAllRoles()
+    public List<RoleDTO> GetAllRoles()
     {
-        return _database.role.ToList();
+        var roles = _database.role
+            .Include(r => r.UsersHasRole)
+            .ThenInclude(r => r.User)
+            .ToList();
+        var a = roles.Select(l => new RoleDTO
+        {
+            Name = l.Name,
+            UsersHasRole = l.UsersHasRole
+                .Select(m => new UserDTO { Name = m.User.Name })
+                .ToList()
+        }).ToList();
+        return a;
     }
 
     public Role GetRoleById(int id)
