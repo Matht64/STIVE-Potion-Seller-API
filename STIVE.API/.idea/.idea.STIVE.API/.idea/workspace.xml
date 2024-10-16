@@ -10,7 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a1f7de39-1056-4c8e-b17e-c8f46d7c66a2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.STIVE.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.STIVE.API/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +85,7 @@
       <workItem from="1726841495153" duration="679000" />
       <workItem from="1726842178360" duration="408000" />
       <workItem from="1729070115378" duration="710000" />
+      <workItem from="1729070847711" duration="324000" />
     </task>
     <servers />
   </component>
