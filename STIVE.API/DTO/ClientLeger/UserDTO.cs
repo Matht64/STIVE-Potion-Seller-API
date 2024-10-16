@@ -1,6 +1,7 @@
-﻿using STIVE.API.DTO.Core;
+﻿using STIVE.API.DTO.ClientLeger;
+using STIVE.API.DTO.Core;
 
-namespace STIVE.API.DTO.Output
+namespace STIVE.API.DTO.ClientLeger
 {
     public class UserDTO : EntityDTO
     {

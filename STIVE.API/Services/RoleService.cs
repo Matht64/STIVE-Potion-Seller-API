@@ -1,9 +1,10 @@
 using STIVE.API.Database;
 using STIVE.API.Models;
-using STIVE.API.DTO.Output;
-using STIVE.API.DTO.Input;
+using STIVE.API.DTO.ClientLeger;
+using STIVE.API.DTO.ClientLourd;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Headers;
+using STIVE.API.DTO.ClientLeger;
 
 namespace STIVE.API.Services;
 

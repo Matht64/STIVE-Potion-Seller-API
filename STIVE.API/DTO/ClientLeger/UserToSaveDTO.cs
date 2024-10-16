@@ -1,7 +1,7 @@
 ﻿using STIVE.API.DTO.Core;
-using STIVE.API.DTO.Output;
+using STIVE.API.DTO.ClientLourd;
 
-namespace STIVE.API.DTO.Input
+namespace STIVE.API.DTO.ClientLeger
 {
     public class UserToSaveDTO
     {

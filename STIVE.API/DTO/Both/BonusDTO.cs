@@ -2,7 +2,7 @@
 using STIVE.API.DTO;
 using STIVE.API.Models;
 
-namespace STIVE.API.DTO.Output
+namespace STIVE.API.DTO.Both
 {
     public class BonusDTO : EntityDTO
     {

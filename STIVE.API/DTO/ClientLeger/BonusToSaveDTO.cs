@@ -2,7 +2,7 @@
 using STIVE.API.DTO;
 using STIVE.API.Models;
 
-namespace STIVE.API.DTO.Input
+namespace STIVE.API.DTO.ClientLeger
 {
     public class BonusToSaveDTO : EntityDTO
     {

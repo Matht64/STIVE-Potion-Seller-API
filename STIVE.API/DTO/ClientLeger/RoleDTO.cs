@@ -1,6 +1,7 @@
 ﻿using STIVE.API.DTO.Core;
+using STIVE.API.DTO.ClientLeger;
 
-namespace STIVE.API.DTO.Output
+namespace STIVE.API.DTO.ClientLeger
 {
     public class RoleDTO : EntityDTO
     {

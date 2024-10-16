@@ -1,9 +1,9 @@
 ﻿using STIVE.API.DTO.Core;
 using STIVE.API.Models;
 
-namespace STIVE.API.DTO.Output
+namespace STIVE.API.DTO.ClientLourd
 {
-    public class SaveDetailDTO : EntityDTO
+    public class SavedDetailDTO : EntityDTO
     {
         public string Name { get; set; }
         public int Gold { get; set; }
@@ -11,7 +11,7 @@ namespace STIVE.API.DTO.Output
         public List<SaveHasBonus> SaveHasBonuses { get; set; }
         public List<SaveHasPotion> SaveHasPotions { get; set; }
         public List<SaveHasSupplier> SaveHasSuppliers { get; set; }
-        public SaveDetailDTO()
+        public SavedDetailDTO()
         {
             SaveHasBonuses = new List<SaveHasBonus>();
             SaveHasPotions = new List<SaveHasPotion>();

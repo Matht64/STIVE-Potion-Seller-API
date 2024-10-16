@@ -1,6 +1,6 @@
 ﻿using STIVE.API.DTO.Core;
 
-namespace STIVE.API.DTO.Input
+namespace STIVE.API.DTO.ClientLeger
 {
     public class PasswordEditDTO
     {

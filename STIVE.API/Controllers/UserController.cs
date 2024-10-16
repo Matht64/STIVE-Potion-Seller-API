@@ -1,7 +1,9 @@
 ﻿using STIVE.API.Services;
 using Microsoft.AspNetCore.Mvc;
-using STIVE.API.DTO.Output;
-using STIVE.API.DTO.Input;
+using STIVE.API.DTO;
+using STIVE.API.DTO.Both;
+using STIVE.API.DTO.ClientLourd;
+using STIVE.API.DTO.ClientLeger;
 using STIVE.API.Models;
 
 namespace STIVE.API.Controllers;
@@ -15,6 +17,53 @@ public partial class UserController : Controller
     public UserController(UserService userService)
     {
         _userService = userService;
+    }
+    
+    [HttpGet("count")]
+    public ActionResult<int> GetUserCount()
+    {
+        int count = _userService.GetUserCount();
+        return Ok(count);
+    }
+
+    [HttpGet("classement")]
+    public IActionResult GetUserGold()
+    {
+        var users = _userService.GetUserGold();
+        return Ok(users);
+    }
+    
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] UserRegisterDTO userRegisterDto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        try
+        {
+            var newUser = _userService.Register(userRegisterDto);
+            return Ok(new { message = "Nouvel utilisateur créé!" });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erreur lors de la création de l'utilisateur: {ex.Message}");
+        }
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] UserLoginDTO userLoginDto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        var user = await _userService.Login(userLoginDto.Email, userLoginDto.Password);
+        if (user == null)
+        {
+            return Unauthorized("Identifiants invalides");
+        }
+        return Ok(new { message = "Connexion réussie !" });
     }
 
     [HttpGet]

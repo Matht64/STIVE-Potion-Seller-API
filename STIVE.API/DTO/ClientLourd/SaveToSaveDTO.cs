@@ -1,7 +1,7 @@
 ﻿using STIVE.API.DTO.Core;
 using STIVE.API.Models;
 
-namespace STIVE.API.DTO.Input
+namespace STIVE.API.DTO.ClientLourd
 {
     public class SaveToSaveDTO : EntityDTO
     {
