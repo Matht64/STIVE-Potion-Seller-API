@@ -101,24 +101,6 @@ public class UserService
         }
         return user;
     }
-    
-    public User AddUser(UserToSaveDTO UserToSaveDto)
-    {
-        var role = _database.role.ToList();
-        var user = new User
-        {
-            Name = UserToSaveDto.Name,
-            Email = UserToSaveDto.Email,
-            Password = UserToSaveDto.Password,
-            UserHasRoles = UserToSaveDto.UserHasRoles.Select(id => new UserHasRole
-            {
-                RoleId = id
-            }).ToList(),
-        };
-        _database.user.Add(user);
-        _database.SaveChanges();
-        return user;
-    }
 
     public User UpdateUser(User user)
     {

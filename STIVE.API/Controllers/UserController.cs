@@ -80,13 +80,6 @@ public partial class UserController : Controller
         return Ok(user);
     }
 
-    [HttpPost]
-    public IActionResult AddUser([FromBody] UserToSaveDTO user)
-    {
-        var createdUser = _userService.AddUser(user);
-        return Ok(createdUser);
-    }
-
     [HttpPut]
     public IActionResult UpdateUser([FromBody]User user)
     {
