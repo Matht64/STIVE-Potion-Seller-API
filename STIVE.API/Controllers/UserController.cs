@@ -80,20 +80,6 @@ public partial class UserController : Controller
         return Ok(new { message = "Connexion réussie !" });
     }
 
-    [HttpPost]
-    public IActionResult AddUser([FromBody] UserToSaveDTO user)
-    {
-        var createdUser = _userService.AddUser(user);
-        return Ok(createdUser);
-    }
-
-    [HttpPost]
-    public IActionResult AddUser([FromBody] UserToSaveDTO user)
-    {
-        var createdUser = _userService.AddUser(user);
-        return Ok(createdUser);
-    }
-
     [HttpPut]
     public IActionResult UpdateUser([FromBody]User user)
     {

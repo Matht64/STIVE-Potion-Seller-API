@@ -3,6 +3,7 @@ using STIVE.API.DTO.Both;
 using STIVE.API.DTO.ClientLeger;
 using STIVE.API.DTO.ClientLourd;
 using STIVE.API.Models;
+using BonusDTO = STIVE.API.DTO.ClientLeger;
 
 namespace STIVE.API.Services
 {
@@ -16,28 +17,30 @@ namespace STIVE.API.Services
             Database = database;
         }
 
-        public List<DTO.Both.BonusDTO> GetAll()
+        public List<BonusDetailDTO> GetAll()
         {
             var bonusesList = Database.bonus.ToList();
-            return bonusesList.Select(x => new BonusDTO
+            return bonusesList.Select(x => new BonusDetailDTO
             {
                 Id = x.Id,
                 Name = x.Name,
                 Duration = x.Duration,
+                Price = x.Price,
             }).ToList();
         }
-        public DTO.Both.BonusDTO? Get(int id)
+        public BonusDetailDTO? Get(int id)
         {
             var bonus = Database.bonus.FirstOrDefault(x => x.Id == id);
             if (bonus != null) 
             {
-                var bonusDTO = new DTO.Both.BonusDTO
+                var bonusDto = new BonusDetailDTO
                 {
                     Id = bonus.Id,
                     Name = bonus.Name,
                     Duration = bonus.Duration,
+                    Price = bonus.Price,
                 };
-                return bonusDTO;
+                return bonusDto;
             }
             return null;
             
