@@ -8,6 +8,7 @@ namespace STIVE.API.DTO.ClientLeger
     {
         public string Name { get; set; }
         public string Duration { get; set; }
+        public float Price { get; set; }
         public List<int> BonusHasSaves { get; set; }
         public BonusToSaveDTO() 
         {

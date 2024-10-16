@@ -32,7 +32,21 @@ public partial class UserController : Controller
         var users = _userService.GetUserGold();
         return Ok(users);
     }
-    
+
+    [HttpGet]
+    public IActionResult GetAllUsers()
+    {
+        var users = _userService.GetAllUsers();
+        return Ok(users);
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetUser(int id)
+    {
+        var user = _userService.GetUserById(id);
+        return Ok(user);
+    }
+
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] UserRegisterDTO userRegisterDto)
     {
@@ -58,33 +72,12 @@ public partial class UserController : Controller
         {
             return BadRequest(ModelState);
         }
-        var user = await _userService.Login(userLoginDto.Email, userLoginDto.Password);
+        var user = await _userService.Login(userLoginDto);
         if (user == null)
         {
             return Unauthorized("Identifiants invalides");
         }
         return Ok(new { message = "Connexion réussie !" });
-    }
-
-    [HttpGet]
-    public IActionResult GetAllUsers()
-    {
-        var users = _userService.GetAllUsers();
-        return Ok(users);
-    }
-
-    [HttpGet("{id}")]
-    public IActionResult GetUser(int id)
-    {
-        var user = _userService.GetUserById(id);
-        return Ok(user);
-    }
-
-    [HttpPost]
-    public IActionResult AddUser([FromBody] UserToSaveDTO user)
-    {
-        var createdUser = _userService.AddUser(user);
-        return Ok(createdUser);
     }
 
     [HttpPut]

@@ -5,6 +5,7 @@ using STIVE.API.DTO.ClientLourd;
 using STIVE.API.Database;
 using STIVE.API.DTO;
 using STIVE.API.Models;
+using STIVE.API.DTO.Both;
 
 namespace STIVE.API.Services;
 
@@ -71,14 +72,14 @@ public class UserService
         var user = new User
         {
             Name = userRegisterDto.Name,
-            Email =userRegisterDto.Email,
+            Email = userRegisterDto.Email,
             Tel = userRegisterDto.Tel,
             Password = hashPassword,
             UserHasRoles = new List<UserHasRole>
             {
                 new UserHasRole
                 {
-                    RoleId = 2
+                    RoleId = 2 // Role Utililisateur
                 }
             }
         };
@@ -92,31 +93,13 @@ public class UserService
         return result == PasswordVerificationResult.Success;
     }
 
-    public async Task<User> Login(string email, string password)
+    public async Task<User> Login(UserLoginDTO userLoginDTO)
     {
-        var user = await _database.user.FirstOrDefaultAsync(u => u.Email == email);
-        if (user == null || !VerifyPassword(user, password))
+        var user = await _database.user.FirstOrDefaultAsync(u => u.Email == userLoginDTO.Email);
+        if (user == null || !VerifyPassword(user, userLoginDTO.Password))
         {
             return null;
         }
-        return user;
-    }
-    
-    public User AddUser(UserToSaveDTO UserToSaveDto)
-    {
-        var role = _database.role.ToList();
-        var user = new User
-        {
-            Name = UserToSaveDto.Name,
-            Email = UserToSaveDto.Email,
-            Password = UserToSaveDto.Password,
-            UserHasRoles = UserToSaveDto.UserHasRoles.Select(id => new UserHasRole
-            {
-                RoleId = id
-            }).ToList(),
-        };
-        _database.user.Add(user);
-        _database.SaveChanges();
         return user;
     }
 

@@ -1,6 +1,5 @@
 ﻿using STIVE.API.Database;
-using STIVE.API.DTO.ClientLeger;
-using STIVE.API.DTO.ClientLourd;
+using STIVE.API.DTO.Both;
 using STIVE.API.DTO.ClientLeger;
 using STIVE.API.DTO.ClientLourd;
 using STIVE.API.Models;
