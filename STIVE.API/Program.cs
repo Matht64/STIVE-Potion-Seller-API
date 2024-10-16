@@ -16,6 +16,9 @@ builder.Services.AddDbContext<stive_potion_seller_context>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<RoleService>();
+builder.Services.AddScoped<BonusService>();
+builder.Services.AddScoped<SaveService>();
 
 var app = builder.Build();
 

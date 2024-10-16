@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using STIVE.API.Database;
 
@@ -11,9 +12,11 @@ using STIVE.API.Database;
 namespace STIVE.API.Migrations
 {
     [DbContext(typeof(stive_potion_seller_context))]
-    partial class stive_potion_seller_contextModelSnapshot : ModelSnapshot
+    [Migration("20241016144129_ReBuild")]
+    partial class ReBuild
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
