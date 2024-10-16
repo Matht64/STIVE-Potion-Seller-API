@@ -16,26 +16,29 @@ namespace STIVE.API.Services
             Database = database;
         }
 
-        public List<DTO.Both.BonusDTO> GetAll()
+        public List<BonusDetailDTO> GetAll()
         {
             var bonusesList = Database.bonus.ToList();
-            return bonusesList.Select(x => new BonusDTO
+            return bonusesList.Select(x => new BonusDetailDTO
             {
                 Id = x.Id,
                 Name = x.Name,
                 Duration = x.Duration,
+                Price = x.Price
             }).ToList();
         }
-        public DTO.Both.BonusDTO? Get(int id)
+        public BonusDetailDTO? Get(int id)
         {
             var bonus = Database.bonus.FirstOrDefault(x => x.Id == id);
             if (bonus != null) 
             {
-                var bonusDTO = new DTO.Both.BonusDTO
+                var bonusDTO = new BonusDetailDTO
                 {
                     Id = bonus.Id,
                     Name = bonus.Name,
                     Duration = bonus.Duration,
+                    Price = bonus.Price
+
                 };
                 return bonusDTO;
             }
@@ -48,6 +51,7 @@ namespace STIVE.API.Services
             {
                 Name = bonusSaveDTO.Name,
                 Duration = bonusSaveDTO.Duration,
+                Price = bonusSaveDTO.Price,
             };
             Database.bonus.Add(bonus);
             Database.SaveChanges();
@@ -65,6 +69,7 @@ namespace STIVE.API.Services
                 {
                     SaveId = id
                 }).ToList();
+                bonusToUpdate.Price = bonusToSaveDTO.Price;
                 Database.bonus.Update(bonusToUpdate);
                 Database.SaveChanges();
             }
