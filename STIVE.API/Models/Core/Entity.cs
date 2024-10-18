@@ -1,6 +1,6 @@
 ﻿namespace STIVE.API.Models.Core
 {
-    public class Entity
+    public abstract class Entity
     {
         public int Id { get; set; }
     }
